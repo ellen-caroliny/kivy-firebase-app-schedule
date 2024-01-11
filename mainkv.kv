@@ -1,0 +1,363 @@
+ScreenManager:
+    FirstScreen:
+    SignupScreen:
+    LoginScreen:
+    HomeScreen:
+    
+
+<FirstScreen>:
+    name:'first'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "logo.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .51, "center_y": .6}
+            canvas.before:
+                Color:
+                    rgb: 1, .85, .825, 1
+        
+        MDIconButton:
+            icon: "chevron-right"
+            user_font_size: "39sp"
+            pos_hint: {"center_x": .5, "center_y": .12}
+            md_bg_color: 1, .5, .5, 1
+            on_press: app.root.current = 'login'
+               
+        MDLabel:
+            text: "Salão de Beleza"   
+            pos_hint: {"center_x": .5, "center_y": .28}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0
+            font_size:"30sp"
+            font_name: "JosefinSans-Regular.ttf"
+
+<LoginScreen>:
+    name: 'login'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "icon.jpg"       
+            size_hint: .3, .3
+            pos_hint: {"center_x": .25, "center_y": .86}
+
+        MDLabel:
+            text: "Bem - vindo(a) !"
+            font_size: "28sp"
+            font_name: "JosefinSans-Regular.ttf"
+            pos_hint: {"center_x": .6, "center_y": .73}    
+
+        MDLabel:
+            text: "Faça Login continuar"           
+            font_size: "20sp"
+            font_name: "JosefinSans-Regular.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .66}
+
+        MDLabel:
+            text: " "
+            halign:"center"
+            font_size: "14.5sp"
+            font_name: "JosefinSans-Regular.ttf"
+            pos_hint: {"center_x": .5, "center_y": .055}    
+            id: msg       
+       
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .55}   
+            MDLabel:
+                text:"Email"
+                font_size: "14sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9} 
+            TextInput:
+                id: em
+                size_hint_y: .75
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4} 
+                background_color: 0, 0, 0, 0    
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                foreground_color: 120/255, 120/255, 120/255, 1
+                font_size: "17sp"
+                multiline: False
+            Image: 
+                source: "mail.png"     
+                pos_hint: {"center_x": .96, "center_y": .55}
+                size_hint: .7, .7
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": 0}
+                size_hint_y: .03    
+                md_bg_color: 0, 0, 0, 1
+
+
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .4}  
+            MDLabel:
+                text:"Senha"
+                font_size: "14sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9} 
+            TextInput:
+                id: ps
+                size_hint_y: .75
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4} 
+                background_color: 0, 0, 0, 0    
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+                password: True
+            Image: 
+                source: "ps.png"     
+                pos_hint: {"center_x": .96, "center_y": .55}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": 0}
+                size_hint_y: .03    
+                md_bg_color: 0, 0, 0, 1    
+
+        MDRaisedButton:
+            id: login
+            text: "Login"
+            md_bg_color: '#FF69B4'
+            font_name: "JosefinSans-Regular.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .27}   
+            on_press: app.login(em, ps, msg)     
+                
+            canvas.before:
+                Color: 
+                    rgb: 25/255, 38/255, 35/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
+           
+        Button:
+            text: "Cadastre-se"
+            background_color: 0, 0, 0, 0
+            font_name: "JosefinSans-Regular.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .18}
+            on_press: app.root.current = 'signup' 
+            canvas.before:
+                Color: 
+                    rgb: 50/255, 66/255, 63/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
+                
+<SignupScreen>:
+    name: 'signup'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "icon.jpg"       
+            size_hint: .3, .3
+            pos_hint: {"center_x": .25, "center_y": .86}
+
+        MDLabel:
+            text: "Não possui conta?"
+            font_size: "28sp"
+            font_name: "JosefinSans-Regular.ttf"
+            pos_hint: {"center_x": .6, "center_y": .73}    
+
+        MDLabel:
+            text: "Faça cadastro!"           
+            font_size: "20sp"
+            font_name: "JosefinSans-Regular.ttf"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint: {"center_x": .6, "center_y": .66}
+
+        MDLabel:
+            text: " "
+            halign:"center"
+            font_size: "14.5sp"
+            font_name: "JosefinSans-Regular.ttf"
+            pos_hint: {"center_x": .5, "center_y": .055}    
+            id: msg       
+       
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .55}   
+            MDLabel:
+                text:"Email"
+                font_size: "14sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9} 
+            TextInput:
+                id: em
+                size_hint_y: .75
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4} 
+                background_color: 0, 0, 0, 0    
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                foreground_color: 120/255, 120/255, 120/255, 1
+                font_size: "17sp"
+                multiline: False
+            Image: 
+                source: "mail.png"     
+                pos_hint: {"center_x": .96, "center_y": .55}
+                size_hint: .7, .7
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": 0}
+                size_hint_y: .03    
+                md_bg_color: 0, 0, 0, 1
+
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .4}  
+            MDLabel:
+                text:"Senha"
+                font_size: "14sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9} 
+            TextInput:
+                id: ps
+                size_hint_y: .75
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4} 
+                background_color: 0, 0, 0, 0    
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+                password: True
+            Image: 
+                source: "ps.png"     
+                pos_hint: {"center_x": .96, "center_y": .55}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": 0}
+                size_hint_y: .03    
+                md_bg_color: 0, 0, 0, 1
+        
+        MDRaisedButton:
+            id: cadastro
+            text: "Cadastre-se"
+            md_bg_color: '#FF69B4'
+            font_name: "JosefinSans-Regular.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .27}   
+            on_press: app.signup(em, ps, msg)     
+                
+            canvas.before:
+                Color: 
+                    rgb: 25/255, 38/255, 35/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
+           
+        Button:
+            text: "Login"
+            background_color: 0, 0, 0, 0
+            font_name: "JosefinSans-Regular.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .18}
+            on_press: app.root.current = 'login' 
+            canvas.before:
+                Color: 
+                    rgb: 50/255, 66/255, 63/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
+<HomeScreen>:
+    name: 'home'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+                  
+        MDLabel:
+            text: "Agende seu horário :"
+            font_size: "24sp"
+            font_name: "JosefinSans-Regular.ttf"
+            pos_hint: {"center_x": .6, "center_y": .75}    
+        
+        MDLabel:
+            text: " "
+            halign:"center"
+            font_size: "16sp"
+            font_name: "JosefinSans-Regular.ttf"
+            pos_hint: {"center_x": .5, "center_y": .09}    
+            id: hora_registro           
+        
+        MDFloatLayout:
+            height: 400
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .35}  
+            MDIconButton:
+                icon: "chevron-down"
+                user_font_size: "35sp"
+                pos_hint: {"center_x": .96, "center_y": 3}
+                on_release: root.mostrarCalendario()
+
+            MDLabel:     
+                text:"Data"
+                font_size: "14sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": 3.3} 
+            
+            MDLabel:
+                id: data
+                text: " "
+                font_size: "12sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": 2.9} 
+
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": 2.55}
+                size_hint_y: .03    
+                md_bg_color: 0, 0, 0, 1    
+
+        
+        MDFloatLayout:
+            size_hint: .79, .08
+            pos_hint: {"center_x": .5, "center_y": .35}  
+            MDLabel:
+                text:"Horário"
+                font_size: "14sp"
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .5, "center_y": .9} 
+            TextInput:
+                id: horario 
+                size_hint_y: .75
+                font_name: "JosefinSans-Regular.ttf"
+                pos_hint: {"center_x": .49, "center_y": .4} 
+                background_color: 0, 0, 0, 0    
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                font_size: "17sp"
+                multiline: False
+            Image: 
+                source: "clock.png"     
+                pos_hint: {"center_x": .96, "center_y": .5}
+                size_hint: .4, .4
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": 0}
+                size_hint_y: .03    
+                md_bg_color: 0, 0, 0, 1            
+
+        MDRaisedButton:
+            text: "Agendar"
+            md_bg_color: '#FF69B4'
+            font_name: "JosefinSans-Regular.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": .5, "center_y": .2}   
+            on_press:  root.agendar(data.text, horario.text)    
+                
+            canvas.before:
+                Color: 
+                    rgb: 25/255, 38/255, 35/255, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [2]  
+        
