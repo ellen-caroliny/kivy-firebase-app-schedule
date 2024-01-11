@@ -12,14 +12,7 @@ import pyrebase
 
 #chaves
 firebaseConfig = {
-   'apiKey': "AIzaSyDO0lZBbLlSkC5QAqoEWKAEtwgl7zCiBwk",
-  'authDomain': "kivy-app-ellen.firebaseapp.com",
-  'databaseURL': "https://kivy-app-ellen-default-rtdb.firebaseio.com",
-  'projectId': "kivy-app-ellen",
-  'storageBucket': "kivy-app-ellen.appspot.com",
-  'messagingSenderId': "509052962900",
-  'appId': "1:509052962900:web:903ae997d205465ae045c1",
-  'measurementId': "G-NXE8H9VTJ5"
+#coloca seu arquivo json aqui
 }
 
 firebase = pyrebase.initialize_app(firebaseConfig)
