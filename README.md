@@ -1,3 +1,4 @@
+<img src="./gif.gif">
 
 #Visão geral
 
