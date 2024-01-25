@@ -1,4 +1,5 @@
-<img src="./gif.gif">
+![Imagem alt](./gif.gif)
+
 
 #Visão geral
 
