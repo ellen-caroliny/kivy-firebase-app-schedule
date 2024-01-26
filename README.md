@@ -1,4 +1,4 @@
-![Imagem alt](./gif.gif)
+![Imagem alt](./clip.gif)
 
 
 #Visão geral
